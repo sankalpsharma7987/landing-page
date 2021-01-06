@@ -1,20 +1,22 @@
 /* ---- Base Rules ---- */
+
 body {
-    background: linear-gradient(136.86deg,#57bc90,#00766c);
+    background: linear-gradient(136.86deg,rgb(87,188,144),rgb(0,118,108));
     margin: 0;
     font-family: 'Merriweather', serif;
-    color: #fff;
+    color: rgb(255,255,255);
 }
 
 
 /* Typeography General*/
+
 h1 {
     font-family: 'Fira Sans', sans-serif;
-    font-size: 3em;
+    font-size: 2.5em;
     margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
         margin: 2em 4rem 1em;
@@ -22,20 +24,19 @@ h1 {
     
 }
 
-
-
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid rgb(204,204,17);
     font-family: 'Oxygen', Sans-Serif;
-    color: #fff;
+    color:rgb(255,255,255);
 }
 
 p {
     line-height: 1.6em;
-    color: #eee;
+    color: rgb(238,238,238);
 }
 
 /* ---- Layout Rules ---- */
+
 main {
     margin: 10vh 1em 10vh;
 }
@@ -54,36 +55,81 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
     text-align: left;
+/* CSS Property for the navigation bar to resize to column list for devices smaller than 50em */
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: stretch;
 }
+
+/* Style to flex the anchor tag in the list element and not wrap them */
 
 .navbar__menu li {
-    display: inline-block;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
-.navbar__menu{
-    /* display: block; */
-    display: flex;
-    flex: 1 0 0;
-    justify-content: flex-end;
+.navbar__menu {
+    display: block;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
     z-index: 100;
 }
- 
+
+/* CSS Property for the navigation bar to resize to column list for devices higher than 50em */
+
+@media only screen and (min-width: 50em) {
+
+    .navbar__menu ul{
+        flex-flow: row;
+        justify-content: flex-end;
+    }
+
+}
+
+
+
+/* .hamburger {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger__button {
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  .hamburger__button:focus {
+    outline: none;
+  }
+  
+  .hamburger__button--bar {
+    width: 100%;
+    height: 0.2rem;
+    background: white;
+    display: block;
+    margin: 0.6rem 0;
+  } */
+
 .menu__link {
     padding: 5px 5px 5px 5px;
-    color: #fff;
+    color: rgb(255,255,255);
 } 
 
 /* Header Styles */
+
 .page__header {
-    /* background: #fff; */
-    /* background: rgb(124, 209, 169); */
     position: fixed;
     top: 0;
     width: 100%;
@@ -91,14 +137,15 @@ section {
 }
 
 /* Footer Styles */
+
 .page__footer {
-    background: #000;
+    background: rgb(0,0,0);
     padding: 3em;
-    color: #fff;
+    color: rgb(255,255,255);
 }
 
-.page__footer p{
-    color: #fff;
+.page__footer p {
+    color: rgb(255,255,255);
 }
 
 /* ---- App How It Works Section Rules ----*/
@@ -108,19 +155,17 @@ section {
     flex-flow: column;
     justify-content: center;
     padding: 10px 10px 10px 10px;
-    background: #ffc809;
-    /* border: 1px solid black; */
+    background: rgb(255,200,9);
     padding: 5px 5px 5px 5px;
     border-radius: 0.5em;
 }
 
-
 .app__feature__item {
-    color: #000;
+    color: rgb(0,0,0);
     text-align: center;
 }
 
-@media only screen and (min-width:50em){
+@media only screen and (min-width:50em) {
     .app__feature__row {
         flex-flow: row;
     }
@@ -128,6 +173,7 @@ section {
     .app__feature__item {
         font-size: 2em;
     }
+
 }
 
 
@@ -152,6 +198,7 @@ section {
 }
 
 /* ---- Theme Rules ---- */
+
 /* Partner Container Styles */
 
 .partner__container {
@@ -159,32 +206,39 @@ section {
     flex-flow: column;
     justify-content: flex-start;
     padding: 10px 10px 10px 10px;
-    /* background: #ffc809; */
-    /* border: 1px solid black; */
-    padding: 5px 5px 5px 5px;
     grid-gap: 10px;
-
 }
 
-@media only screen and (min-width:560px)
-{
+.partner__item {
+    padding: 10px 10px 10px 10px;
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+}
+
+.box {
+    border: 1px solid rgb(255,200,9);
+    border-radius: 0.5em;
+}
+
+@media only screen and (min-width:50em) {
     .partner__container {
         flex-flow: row;
     }
+
 }
-.partner__item {
-    text-align: center;
-}
+
 
 img {
     width: 100px;
-    height: 100px;
     max-width: 100%;
-    height: auto;
+    height: 100px;
 }
 
 /* ---- Theme Rules ---- */
+
 /* Landing Container Styles */
+
 .landing__container {
     padding: 1em;
     text-align: left;
@@ -193,51 +247,34 @@ img {
 .menu__link__change {
     display: block;
     padding: 1em;
-    /* font-weight: bold; */
     text-decoration: none;
-    color: #000;
+    color: rgb(0,0,0);
     background: lightslategray;
     color: orange;
-    /* transition: ease 1.3s all; */
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     .landing__container {
         max-width: 50em;
         padding: 4em;
     }
 
-
-
-    
-
-
 }
 
-section:nth-of-type(even) .landing__container {
+.landing__container {
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
-}
-
-/* ---- FundRaiser Content Style Rules ---- */
-
-
-
-
-.box {
-    border: 1px solid yellow;
-
+    text-align: right;
 }
 
 
 /* ---- Theme State Rules ---- */
+
 /* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+
 section.active-background {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%); 
-    /* background: lightslategray; */
 }
 
 section.active-background .landing__container::before {
@@ -252,7 +289,8 @@ section.active-background .landing__container::after {
 
 
 /* Style to Change Background of Header on scroll */
-.sticky {
+
+.header__color {
     background:  rgb(184, 236, 212);
 }
 
@@ -265,16 +303,12 @@ section.active-background .landing__container::after {
     display: none;
     bottom: 5%;
     right: 2vw;
-    background: #000;
+    background: rgb(255,200,9);
     border-radius: 50%;
     padding: 1rem;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    color: #fff;
+    color: rgb(255,255,255);
     cursor: pointer;
 }
 
@@ -283,5 +317,5 @@ section.active-background .landing__container::after {
 }
 
 .arrow-top svg {
-    fill: #fff;
+    fill: rgb(255,255,255);
 }
