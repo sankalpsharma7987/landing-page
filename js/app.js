@@ -42,7 +42,7 @@ const isSectionActive = (element)=>{
     // return element.getBoundClientRect().bottom-element.getBoundClientRect().top==element.getBoundClientRect().height?true:false;
     // return element.getBoundingClientRect().bottom<=10 && element.getBoundingClientRect().bottom<element.getBoundingClientRect().height
     // return element.getBoundingClientRect().top<window.innerHeight;
-const {top,bottom,height,y} = element.getBoundingClientRect();
+const {top,bottom} = element.getBoundingClientRect();
 
     // if(element.getBoundingClientRect().top<=10 && element.getBoundingClientRect().top<window.innerHeight)
     if(
