@@ -1,7 +1,6 @@
 /* Declare constants for the elements */
 
 const $NAVIGATION_BAR = document.querySelector('.navbar__menu');
-const $ANCHOR_TAG = document.getElementsByClassName('.menu__link');
 const $SECTION_LIST = document.querySelectorAll("section");
 const $TOP_ARROW = document.querySelector('.arrow-top');
 const $UNORDERED_LIST = document.querySelector('#navbar__list');
@@ -27,7 +26,6 @@ $SECTION_LIST.forEach((section)=>{
 
     fragment.appendChild(listElement);
 });
-
 
 /* After the section array is parsed and all elements are created and appended in the fragment, add the fragment to the unordered list */
 
