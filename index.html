@@ -1,56 +1,88 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> :) Online Fundraising Platform </title>
+
   <!-- Load Google Fonts -->
+
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
   <link href="./css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
 </head>
+
 <body>
+
   <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
+
   <header id="pageheader" class="page__header">
+
     <nav class="navbar__menu">
+
       <!-- Navigation starts as empty UL that will be populated with JS -->
+
       <ul id="navbar__list">
        </ul>
+
     </nav>
 
   </header>
+
   <main>
+
     <header class="main-hero">
+
       <h1> :) Bringing Smiles </h1>
+
     </header>
+    
     <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1">
+
+    <section id="section1">
+
       <div class="landing__container">
+
           <h2> Our Mission </h2>
+
           <p> We at Bringing Smile are committed to work towards child welfare, healthcare and education. At Bringing Smile we believe no child should be uneducated 
             or sleep without food at night. We have collaborated with many non-profit organizations who work tirelessly for our mission and have raised funds with 
-            corporate companies. Some of the companies and non-profits whom we have worked are 
+            corporate companies and other charitable institutes. With over one 5 years of experience, our platform will certainly increase your outreach for the cause that you care.
+            Some of the companies and non-profits whom we have worked are 
   
             <b>
-            <a href="#" class="menu__link"> Load More... </a>
+              <a href="#" class="menu__link"> Load More... </a>
             </b>
-  
 
-        </p>
+          </p>
+
       </div>
 
     </section>
-    <section id="section2" data-nav="Section 2">
+
+    <section id="section2">
+      
       <div class="landing__container">
+
           <h2> How It Works </h2>
+
           <p> We at Bringing Smile believe in easy steps to initate and spread a word about the cause you care for the future of this world </p>
 
+
          <div class="app__feature__container">
+
+            <div class ="app__feature__item">
+              <h4> <span class="start-fundraiser"></span> Start FundRaiser </h4> 
+            </div>
 
             <div class ="app__feature__item">
               <h4> <span class="notify"></span> Get Notification </h4> 
@@ -68,67 +100,105 @@
               <h4> <span class="thank__donor"></span> Thank Donors </h4> 
             </div>
 
-
-
-       
+          </div>
+     
       </div>
+
     </section>
-    <section id="section3" data-nav="Section 3">
+
+    <section id="section3">
+
       <div class="landing__container">
+
         <h2> Browse Fundraisers </h2>
+
         <h4> Some of our Top Fundraisers </h4>
 
-        <div class="box partner__container">
-          <div class="box partner__item">
+
+        <div class="partner__container">
+          
+          <div class="partner__item">
             <img src="images/boat.jpeg">
-            <h4> Teach US </h4>
+            <h4 class="h4__class"> Teach US </h4>
           </div>
 
-          <div class="box partner__item">
+          <div class="partner__item">
             <img src="images/boat.jpeg">
-            <h4> Save Tom </h4>
+            <h4 class="h4__class"> Save Tom </h4>
           </div>
 
-          <div class="box partner__item">
+          <div class="partner__item">
             <img src="images/boat.jpeg">
-            <h4> Fundraiser for Students </h4>
+            <h4 class="h4__class"> Fundraiser for Students </h4>
           </div>
 
-          <div class="box partner__item">
+          <div class="partner__item">
             <img src="images/boat.jpeg">
-            <h4> St Patric Hospital </h4>
+            <h4 class="h4__class"> St Patric Hospital </h4>
           </div>
 
-          <div class="box partner__item">
+          <div class="partner__item">
             <img src="images/boat.jpeg">
-            <h4> Research Cancer Association </h4>
+            <h4 class="h4__class"> Research Cancer Association </h4>
           </div>
           
           
-          <div class="box partner__item">
+          <div class="partner__item">
             <img src="images/boat.jpeg">
-            <h4> Canadian Charitable Trust </h4>
+            <h4 class="h4__class"> Canadian Charitable Trust </h4>
           </div>
-
-         
-
 
         </div>
 
        
       </div>
+
     </section>
-    <section id="section4" data-nav="Section 4">
+
+    <section id="section4">
+
       <div class="landing__container">
+
         <h2> Start a free fundraiser </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+
+        <form>
+
+          <div class="form__group">
+            <label class="form__label"> Name </label>
+            <input class="form__input" type="text">
+          </div>
+
+          <div class="form__group form__email">
+            <label class="form__label"> Email </label>
+            <input class="form__input" type="text">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label"> Phone </label>
+            <input class="form__input" type="text">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label"> Message </label>
+            <textarea type="text" class="form__input form__message"></textarea>
+          </div>
+
+          <div class="form__group form__button__layout">
+            <button  class="form__button"> <b> Submit </b> </button>
+          </div>
+
+        </form>
 
       </div>
+
     </section>
+
   </main>
+
   <footer class="page__footer">
+
     <p> Landing Page Developed by Sankalp Sharma from DesignQore as Part of Udacity Project </p>
+    
   </footer>
 
   <!-- Arrow to go back to the top -->
@@ -138,5 +208,7 @@
   </a>
 
   <script src="./js/app.js"></script>
+  
 </body>
+
 </html>

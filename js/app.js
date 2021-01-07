@@ -9,6 +9,7 @@ const fragment = document.createDocumentFragment();
 /* Create Dynamic List Anchor Tag Elements. */
 
 $SECTION_LIST.forEach((section)=>{
+
     /* Create List and Anchor Tags */
 
     let listElement = document.createElement('li');
@@ -25,6 +26,7 @@ $SECTION_LIST.forEach((section)=>{
     /* Add the newly created list tag to the fragment object */
 
     fragment.appendChild(listElement);
+    
 });
 
 /* After the section array is parsed and all elements are created and appended in the fragment, add the fragment to the unordered list */
@@ -68,6 +70,7 @@ const highlightScrollSection = ()=> {
         }
     }
 
+/* Condition to verify if the window scrollbar has moved from its initial position of zero. If yes then change the color of header background */
 
     if(window.scrollY>0)
     {
@@ -80,7 +83,6 @@ const highlightScrollSection = ()=> {
         $NAVIGATION_BAR.classList.remove('header__color');
         $TOP_ARROW.classList.remove('active');
     }
-
 
 }
 
