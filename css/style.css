@@ -103,6 +103,7 @@ section {
 .menu__link {
     padding: 5px 5px 5px 5px;
     color: rgb(255,255,255);
+    cursor: pointer;
 } 
 
 /* Header Styles */
@@ -307,7 +308,7 @@ section.active-background {
 }
 
 .active-nav {
-    color:rgb(119,136,153);
+    background:rgb(119,136,153);
 }
 
 .arrow-top {

@@ -18,7 +18,6 @@ $SECTION_LIST.forEach((section)=>{
     /* Set Attribute values for anchor tag and append in the list tag */
 
     anchorElement.setAttribute('id',`nav-${section.id}`);
-    anchorElement.setAttribute('href',`#${section.id}`);
     anchorElement.setAttribute('class','menu__link');
     anchorElement.textContent = section.querySelector('h2').textContent;
     listElement.appendChild(anchorElement);
@@ -70,6 +69,8 @@ const highlightScrollSection = ()=> {
         }
     }
 
+
+
 /* Condition to verify if the window scrollbar has moved from its initial position of zero. If yes then change the color of header background */
 
     if(window.scrollY>0)
@@ -86,6 +87,16 @@ const highlightScrollSection = ()=> {
 
 }
 
+/*Listener Event Handler for click on anchor tags that are part of the unordered list */
+
+const scrollIntoSection = (e)=> {
+
+    let scrollToSection = e.target.id.slice(4)
+    let sectionName = document.getElementById(scrollToSection);
+    sectionName.scrollIntoView({behavior: "smooth"});
+
+}
+
 /* Listener Event Handler to move the scrollbar to top */
 
 const moveWindowUp = ()=> {
@@ -97,4 +108,5 @@ const moveWindowUp = ()=> {
 /* Adding Listener Events */
 
 window.addEventListener('scroll',highlightScrollSection);
+$UNORDERED_LIST.addEventListener('click',scrollIntoSection);
 $TOP_ARROW.addEventListener('click',moveWindowUp);
