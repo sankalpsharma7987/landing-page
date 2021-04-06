@@ -78,16 +78,104 @@ section {
 }
 
 .navbar__menu {
-    display: block;
+    display: none;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
     z-index: 100;
 }
 
+.navbar__menu__mobile {
+    display: block;
+    padding: 0.75em;
+    cursor: pointer;
+}
+
+.navbar__menu__mobile ul {
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.navbar__menu__mobile li {
+    list-style-type: none;
+    display: flex;
+    padding-bottom: 1em;
+    flex-flow: flex-start;
+    align-items: stretch;
+}
+
+.navbar__menu__mobile li:hover {
+    background: rgb(119,136,153);
+}
+
+.navigation_burger {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.burger__item {
+    width: 1em;
+    margin-bottom: 0.4em;
+    border-bottom: 0.1em solid white;
+}
+
+.navigation__modal {
+    display: none;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    animation: slide-in;
+    position: fixed;
+    top: 0;
+    width: 45%;
+    height: 100%;
+    left:0;
+    z-index: 200;
+    background: rgb(184, 236, 212);
+}
+
+@keyframes slide-in {
+    from {
+        transform:translateX(-200px)
+    }
+    to {
+        transform: translateX(0px)
+    }
+}
+
+.navigation__modal__display {
+    display: flex;
+}
+
+.close-btn-class {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.close-btn-class:hover {
+    color: rgb(119,136,153);
+}
+
+
+
+
+
 /* CSS Property for the navigation bar to resize to column list for devices higher than 50em */
 
 @media only screen and (min-width: 43.75em) {
+
+    .navbar__menu {
+        display: block;
+    }
 
     .navbar__menu ul {
         flex-flow: row;
@@ -98,10 +186,19 @@ section {
         font-size: 3em;
     }
 
+    .navbar__menu__mobile {
+        display: none;
+    }
+
+    .navigation__modal {
+        display: none;
+
+    }
+
 }
 
 .menu__link {
-    padding: 5px 5px 5px 5px;
+    padding: 5px 15px 5px 5px;
     color: rgb(255,255,255);
     cursor: pointer;
 } 
