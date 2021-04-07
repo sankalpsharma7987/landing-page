@@ -1,12 +1,16 @@
 /* Declare constants for the elements */
 
-const $NAVIGATION_BAR = document.querySelector('.navbar__menu');
 const $SECTION_LIST = document.querySelectorAll("section");
 const $TOP_ARROW = document.querySelector('.arrow-top');
+
 const $UNORDERED_LIST = document.querySelector('#navbar__list');
 const $UNORDERED_LIST_MOBILE = document.querySelector('#navbar__list__mobile');
+
+const $NAVIGATION_BAR = document.querySelector('.navbar__menu');
+const $NAVIGATION_BAR_MOBILE = document.querySelector('.navbar__menu__mobile');
 const $NAVIGATION_BURGER = document.querySelector('.navigation__burger')
 const $NAVIGATION_MODAL = document.querySelector('.navigation__modal');
+
 const fragment = document.createDocumentFragment();
 const fragment_mobile = document.createDocumentFragment();
 
@@ -48,7 +52,7 @@ $SECTION_LIST.forEach((section)=>{
     /* Set Attribute values for anchor tag and append in the list tag */
 
     anchorElement.setAttribute('id',`nav-mobile-${section.id}`);
-    anchorElement.setAttribute('class','menu__link');
+    anchorElement.setAttribute('class','menu__link__mobile');
     anchorElement.textContent = section.querySelector('h2').textContent;
     listElement.appendChild(anchorElement);
 
@@ -82,6 +86,9 @@ const highlightScrollSection = ()=> {
     for (const section of $SECTION_LIST)
     {
         const navItem = document.querySelector(`#nav-${section.id}`);
+
+        /* Fetch Navigation Items for small screen resolution */
+
         const navItemMobile = document.querySelector(`#nav-mobile-${section.id}`);
 
         /* Verify if section is active with the helper function */
@@ -91,8 +98,6 @@ const highlightScrollSection = ()=> {
             section.classList.add('active-background');
             navItem.classList.add('active-nav');
             navItemMobile.classList.add('active-nav');
-
-            
         }
 
         else
@@ -100,10 +105,8 @@ const highlightScrollSection = ()=> {
             section.classList.remove('active-background');
             navItem.classList.remove('active-nav');
             navItemMobile.classList.remove('active-nav');
-            
-            
-            
         }
+
     }
 
 
@@ -111,29 +114,59 @@ const highlightScrollSection = ()=> {
 /* Condition to verify if the window scrollbar has moved from its initial position of zero. If yes then change the color of header background */
 
     if(window.scrollY>0)
-    {
-        $NAVIGATION_BAR.classList.add('header__color');
-        $TOP_ARROW.classList.add('active');
+    {   
+        /*  Verify if the modal is currently displayed. If yes then do not show the background for navigation hamburger
+        Else the background of navigation hamburger can be set to the background color value present in header__color class
+        */
+
+        if($NAVIGATION_MODAL.classList.contains('navigation__modal__display'))
+        {
+            $TOP_ARROW.classList.add('active');
+        }
+
+        else {
+            $NAVIGATION_BAR_MOBILE.classList.add('header__color');
+            $NAVIGATION_BAR.classList.add('header__color');
+            $TOP_ARROW.classList.add('active');
+        }
+    
     }
 
     else 
     {
+        $NAVIGATION_BAR_MOBILE.classList.remove('header__color');
         $NAVIGATION_BAR.classList.remove('header__color');
         $TOP_ARROW.classList.remove('active');
     }
 
 }
 
-/*Listener Event Handler for click on anchor tags that are part of the unordered list */
+/* Listener Event Handler for click on anchor tags that are part of the unordered list for large screen resolution */
 
 const scrollIntoSection = (e)=> {
 
-    let scrollToSection = e.target.id.slice(4)
-    let sectionName = document.getElementById(scrollToSection);
-    sectionName.scrollIntoView({behavior: "smooth"});
+    if(e.target.nodeName==='A')
+    {
+        let scrollToSection = e.target.id.slice(4);
+        let sectionName = document.getElementById(scrollToSection);
+        sectionName.scrollIntoView({behavior: "smooth"});
+    }
 
 }
 
+/* Listener Event Handler for click on anchor tags that are part of the unordered list for smaller screen resolution */
+
+const scrollIntoSectionMobileNavigation = (e)=> {
+
+    if(e.target.nodeName==='A')
+    {
+        
+        let scrollToSection = e.target.id.slice(11);
+        let sectionName = document.getElementById(scrollToSection);
+        sectionName.scrollIntoView({behavior: "smooth"});
+    }
+
+}
 /* Listener Event Handler to move the scrollbar to top */
 
 const moveWindowUp = ()=> {
@@ -147,6 +180,7 @@ const moveWindowUp = ()=> {
 const slideNavigationModal = ()=>{
 
     $NAVIGATION_MODAL.classList.add('navigation__modal__display');
+    $NAVIGATION_BAR_MOBILE.classList.remove('header__color');
     
 }
 
@@ -154,7 +188,17 @@ const closeNavigationModal = (e)=>{
 
     if(e.target.nodeName!=='A' || e.target.nodeName==='SPAN')
     {
+    
         $NAVIGATION_MODAL.classList.remove('navigation__modal__display');
+
+        /* Verify if the window.scrollY value is greater than zero. 
+        This is to ensure if the navigation modal is closed then the header color of the hamburger background is not changed if the scrollY value is zero */
+
+        if(window.scrollY>0)
+        {
+            $NAVIGATION_BAR_MOBILE.classList.add('header__color');
+        }
+                
     }
     
 }
@@ -163,7 +207,7 @@ const closeNavigationModal = (e)=>{
 
 window.addEventListener('scroll',highlightScrollSection);
 $UNORDERED_LIST.addEventListener('click',scrollIntoSection);
-$UNORDERED_LIST_MOBILE.addEventListener('click',scrollIntoSection);
+$UNORDERED_LIST_MOBILE.addEventListener('click',scrollIntoSectionMobileNavigation);
 $TOP_ARROW.addEventListener('click',moveWindowUp);
 $NAVIGATION_BURGER.addEventListener('click',slideNavigationModal);
 $NAVIGATION_MODAL.addEventListener('click',closeNavigationModal);
