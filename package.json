@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"env-cmd ./config/dev.env node ./server/index/js",
+    "dev": "env-cmd -f ./config/dev.env node server/index.js",
     "start": "node server/index.js"
   },
   "repository": {
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/sankalpsharma7987/landing-page#readme",
   "devDependencies": {
     "env-cmd": "^10.1.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
