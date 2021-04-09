@@ -134,6 +134,14 @@ const scrollIntoSection = (e)=> {
 
 }
 
+const scrollIntoSectionMobile = (e)=> {
+
+    let scrollToSection = e.target.id.slice(11)
+    let sectionName = document.getElementById(scrollToSection);
+    sectionName.scrollIntoView({behavior: "smooth"});
+
+}
+
 /* Listener Event Handler to move the scrollbar to top */
 
 const moveWindowUp = ()=> {
@@ -163,7 +171,7 @@ const closeNavigationModal = (e)=>{
 
 window.addEventListener('scroll',highlightScrollSection);
 $UNORDERED_LIST.addEventListener('click',scrollIntoSection);
-$UNORDERED_LIST_MOBILE.addEventListener('click',scrollIntoSection);
+$UNORDERED_LIST_MOBILE.addEventListener('click',scrollIntoSectionMobile);
 $TOP_ARROW.addEventListener('click',moveWindowUp);
 $NAVIGATION_BURGER.addEventListener('click',slideNavigationModal);
 $NAVIGATION_MODAL.addEventListener('click',closeNavigationModal);

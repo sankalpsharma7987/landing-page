@@ -1,0 +1,27 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"env-cmd -f ./config/dev.env node src/server/index.js",
+    "start":"node src/server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sankalpsharma7987/landing-page.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sankalpsharma7987/landing-page/issues"
+  },
+  "homepage": "https://github.com/sankalpsharma7987/landing-page#readme",
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
