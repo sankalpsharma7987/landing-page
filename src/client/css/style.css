@@ -398,6 +398,11 @@ section.active-background {
     padding-bottom: 10px;
 }
 
+#form_label_name::after,#form_label_email:after{
+    content:"*";
+}
+
+
 /* Style to Change Background of Header on scroll */
 
 .header__color {
