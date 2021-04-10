@@ -7,6 +7,13 @@ const $UNORDERED_LIST = document.querySelector('#navbar__list');
 const $UNORDERED_LIST_MOBILE = document.querySelector('#navbar__list__mobile');
 const $NAVIGATION_BURGER = document.querySelector('.navigation__burger')
 const $NAVIGATION_MODAL = document.querySelector('.navigation__modal');
+
+const $FORM_NAME_ELEMENT = document.querySelector('#form_input_name');
+const $FORM_EMAIL_ELEMENT = document.querySelector('#form_input_email');
+const $FORM_PHONE_ELEMENT = document.querySelector('#form_input_phone');
+const $FORM_MESSAGE_ELEMENT = document.querySelector('#form_input_message');
+const $FORM_BUTTON_ELEMENT = document.querySelector('#form_button_submit');
+
 const fragment = document.createDocumentFragment();
 const fragment_mobile = document.createDocumentFragment();
 
@@ -167,6 +174,14 @@ const closeNavigationModal = (e)=>{
     
 }
 
+const buttonSubmitBehavior = ()=>{
+
+    $FORM_EMAIL_ELEMENT.value = "";
+    $FORM_PHONE_ELEMENT.value = "";
+    $FORM_NAME_ELEMENT.value = "";
+    $FORM_MESSAGE_ELEMENT.value = "";
+}
+
 /* Adding Listener Events */
 
 window.addEventListener('scroll',highlightScrollSection);
@@ -175,3 +190,4 @@ $UNORDERED_LIST_MOBILE.addEventListener('click',scrollIntoSectionMobile);
 $TOP_ARROW.addEventListener('click',moveWindowUp);
 $NAVIGATION_BURGER.addEventListener('click',slideNavigationModal);
 $NAVIGATION_MODAL.addEventListener('click',closeNavigationModal);
+$FORM_BUTTON_ELEMENT.addEventListener('submit',buttonSubmitBehavior);
